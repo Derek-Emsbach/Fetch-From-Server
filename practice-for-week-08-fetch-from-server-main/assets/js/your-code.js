@@ -3,26 +3,44 @@ export function getAllDogs() {
 }
 
 export function getDogNumberTwo() {
-   return fetch("/dogs/2")
+    return fetch("/dogs/2")
 }
 
 export function postNewDog() {
     return fetch("/dogs", {
-        "method" : "POST",
-        "headers" : {
-            "Content-Type" : "application/x-www-form-urlencoded"
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/x-www-form-urlencoded"
         },
-        "body" : new URLSearchParams({
-            "name" : true,
-            "age" : true
+        "body": new URLSearchParams({
+            "name": true,
+            "age": true
         }),
     })
 }
 
 export function postNewDogV2(name, age) {
-     // Your code here
+    return fetch("/dogs", {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        "body": new URLSearchParams({
+            "name": name,
+            "age": age
+        }),
+    })
 }
 
+
 export function deleteDog(id) {
-      // Your code here
+    return fetch(`/dogs/${id}/delete`, {
+        "method": "POST",
+        "headers": {
+            "AUTH": "ckyut5wau0000jyv5bsrud90y"
+        },
+        "body": {
+            "dogId": id
+        }
+    })
 }
