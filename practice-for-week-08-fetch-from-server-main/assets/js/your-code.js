@@ -1,13 +1,22 @@
 export function getAllDogs() {
-    // Your code here
+    return fetch("/dogs")
 }
 
 export function getDogNumberTwo() {
-    // Your code here
+   return fetch("/dogs/2")
 }
 
 export function postNewDog() {
-    // Your code here
+    return fetch("/dogs", {
+        "method" : "POST",
+        "headers" : {
+            "Content-Type" : "application/x-www-form-urlencoded"
+        },
+        "body" : new URLSearchParams({
+            "name" : true,
+            "age" : true
+        }),
+    })
 }
 
 export function postNewDogV2(name, age) {
